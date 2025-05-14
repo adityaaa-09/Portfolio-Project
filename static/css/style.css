@@ -8,44 +8,41 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #333;
-    min-height: 100vh;
-    overflow-x: hidden;
 }
 
 .container {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* Left Section */
 .left-section {
-    width: 65%;
+    width: 68%;
     background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    padding: 2rem;
     position: relative;
-    overflow-y: auto;
+    overflow-y: hidden;
     transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
 }
 
 .intro {
-    margin-top: auto;
-    margin-bottom: 2rem;
-    padding-left: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 70vh;
-}
+    max-width: 600px;
 
+}
 .intro p {
     font-size: 2rem;
-    margin-bottom: 0.8rem;
+    margin-top: 10rem;
     color: #333;
 }
 
@@ -78,7 +75,6 @@ body {
 .social-links {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
 .social-icon {
@@ -109,13 +105,13 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     color: #555;
+    margin-top: -1rem;
 }
 
 .cta-buttons {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
-    flex-wrap: wrap;
 }
 
 .primary-btn {
@@ -155,26 +151,24 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 35%;
+    width: 45%;
     background-color: #000;
     position: relative;
     transition: width 0.5s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
-/* Navigation - Adjusted to match reference page height */
+/* Navigation */
 .main-nav {
     position: absolute;
-    top: 1.6rem;  /* Aligns with the reference page height */
-    right: 0;
-    left: 0;
+    top: 1.6rem;
+    right: 2rem;
     width: 100%;
     z-index: 10;
-    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
 }
 
 .main-nav ul {
@@ -183,7 +177,6 @@ body {
     align-items: center;
     list-style: none;
     gap: 2rem;
-    flex-wrap: wrap;
 }
 
 .main-nav a {
@@ -239,21 +232,20 @@ body {
 }
 
 .contact-btn:hover {
-    background-color: grey !important;
+    background-color: grey;
     color: black !important;
 }
 
 /* Visual elements for the sidebar */
 .sidebar-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
     padding: 2rem;
     z-index: 1;
-    margin-top: 5rem; /* Added to create space for the nav */
+    margin-top: 3rem;
 }
 
 .profile-visual {
@@ -293,62 +285,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 2rem;
 }
 
 .resume-btn:hover {
     background-color: white;
     color: black;
     transform: translateY(-3px);
-}
-
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    text-align: center;
-    color: white;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    text-transform: uppercase;
-}
-
-.shape-1 {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #444, #222);
-    top: 15%;
-    right: -100px;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-.shape-2 {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #555, #333);
-    bottom: 10%;
-    left: -80px;
-    opacity: 0.2;
-    z-index: 0;
 }
 
 /* Page Transition Effect */
@@ -393,6 +335,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .intro h1 {
@@ -401,6 +344,10 @@ body {
 
     .intro h2 {
         font-size: 1.8rem;
+    }
+
+    .left-section {
+        padding-left: 3rem;
     }
 }
 
@@ -412,49 +359,70 @@ body {
     .left-section {
         width: 100%;
         height: 70vh;
+        padding: 2rem;
+        justify-content: center;
+        align-items: flex-start;
     }
 
     .sidebar {
         width: 100%;
         height: 30vh;
-        min-height: 300px;
-    }
-
-    .intro {
-        padding-left: 2rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-    }
-
-    .intro h1 {
-        font-size: 3.5rem;
-    }
-
-    .intro h2 {
-        font-size: 1.7rem;
     }
 
     .main-nav {
-        position: relative;
+        position: absolute;
         top: 0;
-        padding: 1rem 0;
+        right: 0;
+        width: 100%;
+        background-color: #000;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .main-nav ul {
+        justify-content: center;
     }
 
     .sidebar-content {
-        margin-top: 0;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
         gap: 2rem;
+        margin-top: 5rem;
     }
 
     .profile-visual {
-        margin-bottom: 0;
         width: 150px;
         height: 150px;
+        margin-bottom: 0;
+    }
+
+    .resume-btn {
+        margin-bottom: 0;
     }
 }
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-y: auto;
+    }
+
+    .container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .left-section {
+        height: auto;
+        min-height: 70vh;
+        padding: 2rem 1.5rem;
+    }
+
+    .sidebar {
+        height: auto;
+        min-height: 30vh;
+    }
+
     .intro h1 {
         font-size: 3rem;
     }
@@ -463,36 +431,46 @@ body {
         font-size: 1.5rem;
     }
 
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .main-nav {
+        justify-content: center;
+        padding: 1rem 0;
+    }
+
     .main-nav ul {
-        gap: 1.5rem;
+        gap: 1.2rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
     }
 
     .profile-visual {
         width: 120px;
         height: 120px;
     }
-
-    .resume-btn {
-        padding: 0.7rem 1.5rem;
-    }
 }
 
 @media (max-width: 576px) {
     .container {
-        flex-direction: column-reverse;
+        overflow-y: auto;
     }
 
     .left-section {
-        padding: 1rem;
+        padding: 2rem 1rem;
+        max-height: 55rem;
     }
 
-    .intro {
-        padding-left: 1rem;
-        margin-bottom: 1rem;
+    .sidebar {
+        min-height: 35vh;
     }
 
     .intro p {
         font-size: 1.5rem;
+        margin-top: 1rem;
     }
 
     .intro h1 {
@@ -505,11 +483,14 @@ body {
     }
 
     .main-nav {
-        padding: 0.5rem 0;
+        margin-top: 0.99rem;
+        margin-left: 1rem;
+        padding: 0.5rem;
     }
 
     .main-nav ul {
-        gap: 0.8rem;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
         justify-content: center;
     }
 
@@ -524,38 +505,28 @@ body {
 
     .sidebar-content {
         flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 3rem 1rem 1.5rem;
+        margin-top: 2rem;
     }
 
     .profile-visual {
         width: 100px;
         height: 100px;
-        margin-bottom: 1rem;
     }
 
     .resume-btn {
         padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .social-icon {
-        width: 35px;
-        height: 35px;
-    }
-
-    .about-snippet p {
         font-size: 0.9rem;
     }
 
     .cta-buttons {
+        flex-direction: column;
         gap: 0.8rem;
     }
 
-    .primary-btn, .secondary-btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
+    .social-links {
+        justify-content: center;
     }
 }
 
@@ -572,28 +543,25 @@ body {
         font-size: 1.2rem;
     }
 
-    .main-nav ul {
-        flex-wrap: wrap;
-        gap: 0.6rem 1rem;
-    }
-
     .profile-visual {
         width: 80px;
         height: 80px;
     }
 
-    .sidebar {
-        min-height: 250px;
+    .main-nav ul {
+        gap: 0.7rem;
     }
 }
 
-@media (max-height: 700px) {
-    .sidebar {
-        min-height: 280px;
+@media (max-height: 700px) and (min-width: 577px) {
+    .sidebar-content {
+        margin-top: 5rem;
     }
 
-    .intro {
-        margin-bottom: 0;
+    .profile-visual {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 2rem;
     }
 }
 
