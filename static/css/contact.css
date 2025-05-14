@@ -42,7 +42,8 @@ hr {
 
 .container {
     min-height: 100vh;
-    padding: 2rem 5%;
+    padding: 0 5rem; /* Same padding for all pages */
+    margin: 0 auto; /* Center align */
     display: flex;
     flex-direction: column;
 }
@@ -55,19 +56,31 @@ hr {
 }
 
 /* Navigation Styles */
+.navbar-wrapper {
+    width: 100%;
+    max-width: 1280px; /* Same as contact page container */
+    margin: 0 auto; /* Center alignment */
+    padding: 0 2rem; /* Consistent padding */
+    position: relative;
+}
+
 .main-nav {
-    position: absolute;
-    top: 1.85rem;
-    right: 6rem;
+    position: fixed; /* Makes the navbar stay in one place */
+    margin-top: 1.5rem;
+    left: 79rem;
     width: auto;
-    z-index: 10;
+    z-index: 1000; /* Ensures it stays above other elements */
+    padding: 1rem 1rem;
 }
 
 .main-nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
@@ -403,25 +416,33 @@ hr {
 
 @media (max-width: 576px) {
     .main-nav {
-        position: static;
-        width: 100%;
-        margin-left: 0.25rem;
-        margin-top: -5.85rem;
-        padding: 0rem;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .main-nav ul {
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem 1.5rem;
-        padding: 0;
+        gap: 1rem;
     }
 
-    .main-nav a {
-        font-size: 0.8rem;
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
     }
 }
+
+
+
+
+
 
 /* Animation Keyframes */
 @keyframes fadeIn {
@@ -718,3 +739,320 @@ hr {
 .success-icon i {
     animation: successPulse 1.5s ease infinite;
 }
+
+/* ====== RESPONSIVE STYLES ====== */
+
+/* Large Tablets and Small Laptops (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .main-nav {
+        left: auto;
+        right: 2rem;
+        margin-top: 1rem;
+    }
+
+    .content-wrapper {
+        margin-top: 5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-container {
+        gap: 3rem;
+        padding: 2.5rem;
+    }
+}
+
+/* Medium Tablets (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .main-nav {
+        position: static;
+        margin-top: 0;
+        padding: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        left: auto;
+    }
+
+    .main-nav ul {
+        gap: 1.5rem;
+    }
+
+    .content-wrapper {
+        margin-top: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .page-header p {
+        font-size: 1.1rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+
+    .contact-form {
+        margin-top: 0;
+        height: auto;
+    }
+
+    .info-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Small Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .content-wrapper {
+        margin-top: 1.5rem;
+    }
+
+    .main-nav ul {
+        gap: 1rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .contact-info, .contact-form {
+        min-width: 100%;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .info-item {
+        padding: 0.8rem;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .submit-btn {
+        padding: 0.8rem;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .content-wrapper {
+        margin-top: 1rem;
+    }
+
+    .main-nav {
+        padding: 0.8rem 0;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .page-header {
+        margin-bottom: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+    }
+
+    hr {
+        margin: 1.5rem 0;
+    }
+
+    .contact-container {
+        padding: 1.2rem;
+        gap: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .contact-info > p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.4rem;
+    }
+
+    .underline {
+        width: 50px;
+        height: 3px;
+    }
+
+    .info-item {
+        margin-bottom: 1.2rem;
+        padding: 0.7rem;
+    }
+
+    .icon {
+        width: 36px;
+        height: 36px;
+        margin-right: 0.8rem;
+    }
+
+    .details h3 {
+        font-size: 1rem;
+    }
+
+    .details p, .details a {
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 1.2rem;
+        border-width: 2px;
+    }
+
+    .contact-form > p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0 1rem;
+        margin-top: 2rem;
+        font-size: 0.8rem;
+    }
+
+    .success-message {
+        padding: 0.8rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    .success-icon {
+        font-size: 1.2rem;
+        margin-right: 0.7rem;
+    }
+
+    .success-message p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small Mobile (max-width: 375px) */
+@media screen and (max-width: 375px) {
+    .main-nav a {
+        font-size: 0.8rem;
+    }
+
+    .contact-btn {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.3rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+    }
+
+    .icon {
+        margin-bottom: 0.8rem;
+        margin-right: 0;
+    }
+
+    .details {
+        text-align: center;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
