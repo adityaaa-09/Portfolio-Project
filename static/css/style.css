@@ -465,10 +465,12 @@ body {
 /* Medium-Sized Tablets (576px - 767px) */
 @media (max-width: 767px) {
     .intro h1 {
+        margin-bottom: -6rem;
         font-size: 2.8rem;
     }
 
     .intro p {
+        margin-bottom: -1.2rem;
         font-size: 1.3rem;
     }
 
