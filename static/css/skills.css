@@ -11,12 +11,17 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
-    color: #333;
+    color: var(--text-primary);
+    line-height: 1.6;
     overflow-y: auto;
 }
 
 .container {
     min-height: 100vh;
+    padding: 0 5rem; /* Same padding for all pages */
+    margin: 0 auto; /* Center align */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Left Section */
@@ -44,20 +49,31 @@ body {
 }
 
 /* Nav Styles */
-/* Navigation */
+.navbar-wrapper {
+    width: 100%;
+    max-width: 1280px; /* Same as contact page container */
+    margin: 0 auto; /* Center alignment */
+    padding: 0 2rem; /* Consistent padding */
+    position: relative;
+}
+
 .main-nav {
-    position: absolute;
-    top: 2rem;
-    right: 6rem;
-    z-index: 10;
+    position: fixed; /* Makes the navbar stay in one place */
+    margin-top: 1.5rem;
+    left: 79rem;
+    width: auto;
+    z-index: 1000; /* Ensures it stays above other elements */
+    padding: 1rem 1rem;
 }
 
 .main-nav ul {
     display: flex;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
@@ -69,7 +85,20 @@ body {
     transition: color 0.3s ease;
 }
 
-.main-nav a:not(.contact-btn).active::after,
+/* Active Page Underline */
+.main-nav a:not(.contact-btn).active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
 .main-nav a:not(.contact-btn)::after {
     content: '';
     position: absolute;
@@ -83,7 +112,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.main-nav a:not(.contact-btn).active::after,
 .main-nav a:not(.contact-btn):hover::after {
     transform: scaleX(1);
 }
@@ -94,11 +122,13 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-btn:hover {
     background-color: #333 !important;
+    color: white !important;
+    transform: translateY(-2px);
 }
 
 /* Skills Page Specific Styles */
@@ -286,48 +316,136 @@ body {
     100% { opacity: 0.3; }
 }
 
-@media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+/* ====== RESPONSIVE STYLES ====== */
 
-@media (max-width: 992px) {
-    .skills-content {
-        margin-top: 4rem;
+/* Large Tablets and Small Laptops (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 3rem;
     }
-}
 
-@media (max-width: 576px) {
-    .skills-content {
+    .main-nav {
+        left: auto;
+        right: 2rem;
+        margin-top: 1rem;
+    }
+
+    .about-content {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-
-    .skills-category h2 {
-        font-size: 1.3rem;
-    }
 }
 
+/* Medium Tablets (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
 
-@media (max-width: 576px) {
     .main-nav {
         position: static;
+        margin-top: 0;
+        padding: 1rem 0;
         width: 100%;
-        margin-left: 0.25rem;
-        margin-top: -0.2rem;
-        padding: 0rem;
+        display: flex;
+        justify-content: center;
     }
 
     .main-nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem 1.5rem;
-        padding: 0;
+        gap: 1.5rem;
+    }
+
+    .about-content {
+        margin-top: 3rem;
+    }
+
+    .about-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Small Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .left-section {
+        padding: 1rem;
+    }
+
+    .main-nav ul {
+        gap: 1rem;
     }
 
     .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .about-content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .label {
+        width: auto;
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+
+    .personal-info {
+        margin-top: 0;
+    }
+
+    /* Add a mobile-friendly menu toggle if needed */
+    /* This would require additional HTML and JavaScript */
+}
+
+/* Small Mobile (max-width: 375px) */
+@media screen and (max-width: 375px) {
+    .main-nav a {
         font-size: 0.8rem;
+    }
+
+    .about-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .contact-btn {
+        padding: 0.4rem 0.8rem;
     }
 }
