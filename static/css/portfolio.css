@@ -321,35 +321,48 @@ body {
         margin-top: 4rem;
     }
 
+/* Responsive Design */
+@media (max-width: 992px) {
     .main-nav {
         top: 1rem;
-        right: 1rem;
+        right: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav ul {
+        justify-content: center;
+        gap: 1rem;
+        padding: 0 1rem;
     }
 
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .about-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 576px) {
-    .portfolio-content {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
     .main-nav {
         position: static;
-        margin-top: 4rem;
         width: 100%;
+        margin-left: 0.25rem;
+        margin-top: -0.2rem;
+        padding: 0rem;
     }
 
     .main-nav ul {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 0 1rem;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+        padding: 0;
     }
 
     .main-nav a {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
