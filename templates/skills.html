@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,18 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
 </head>
 <body>
+    {% include 'navbar.html' %}
     <div class="container">
         <div class="left-section">
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/" class="">Say Hi</a></li>
-                    <li><a href="/about">About me</a></li>
-                    <li><a href="/skills" class="active">Skills</a></li>
-                    <li><a href="/portfolio">Projects</a></li>
-                    <li><a href="/contact" class="contact-btn">CONTACT ME</a></li>
-                </ul>
-            </nav>
-
             <div class="skills-content">
                 <h1>My Skills</h1>
 
