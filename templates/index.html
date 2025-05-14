@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Murali - Data Analyst</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    {% include 'navbar.html' %}
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
@@ -49,31 +50,27 @@
                 </div>
             </div>
         </div>
-
         <div class="sidebar">
-
-            <nav class="main-nav fade-in delay-1">
-                <ul>
-                    <li><a href="/" class="active">Say Hi</a></li>
-                    <li><a href="/about">About me</a></li>
-                    <li><a href="/skills">Skills</a></li>
-                    <li><a href="/portfolio">Projects</a></li>
-                    <li><a href="/contact" class="contact-btn">CONTACT ME</a></li>
-                </ul>
-            </nav>
-
             <div class="sidebar-content">
                 <div class="profile-visual fade-in delay-2">
                     <img src="/static/images/profile1.jpg" alt="Profile Image" class="profile-image">
+                    <!-- Replace with your actual image -->
+<!--                    <div class="profile-placeholder">-->
+<!--                        <i class="fas fa-user"></i>-->
+<!--                    </div>-->
                 </div>
 
-                <a href="{{ url_for('static', filename='resume/Aditya_Data _Analyst_Resume_2025.pdf') }}" class="resume-btn fade-in delay-3">
+                <a href = "{{url_for ('static', filename= 'resume/Aditya_Data _Analyst_Resume_2025.pdf')}}" class="resume-btn fade-in delay-3">
                     <i class="fas fa-file-alt"></i> View Resume
                 </a>
             </div>
+
+            <!-- Background shapes -->
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
