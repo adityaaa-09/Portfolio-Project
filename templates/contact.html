@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Aditya Murali</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/" class="">Say Hi</a></li>
+                    <li><a href="/about" class="">About me</a></li>
+                    <li><a href="/skills">Skills</a></li>
+                    <li><a href="/portfolio">Projects</a></li>
+                    <li><a href="/contact" class="active contact-btn">CONTACT ME</a></li>
+                </ul>
+            </nav>
+
+            <div class="page-header">
+                <h1>Let's Connect</h1>
+                <p>I'm always open to new opportunities and collaborations</p>
+            </div>
+            <hr>
+
+
+            <div class="contact-container">
+                <!-- Left Section - Contact Information -->
+                <div class="contact-info">
+                    <div class="section-title">
+                        <h2>Contact Information</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <p>Feel free to reach out through any of these channels:</p>
+
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Email</h3>
+                            <a href="mailto:adityamurali7642@gmail.com">adityamurali7642@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Phone</h3>
+                            <a href="tel:+919920088950">+91 99200 88950</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="details">
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/aditya-murali-136a79226" target="_blank">linkedin.com/in/aditya93278</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="details">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/adityaaa-09" target="_blank">github.com/adityamurali</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Location</h3>
+                            <p>New Panvel, Navi Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section - Contact Form -->
+                <div class="contact-form">
+                    <div class="section-title">
+                        <h2>Send Me a Message</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <p>I'll get back to you as soon as possible</p>
+
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success Message - Initially Hidden -->
+                    <div id="successMessage" class="success-message">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p>Your message has been sent successfully! I'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Aditya Murali. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

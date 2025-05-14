@@ -1,0 +1,482 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Section */
+.left-section {
+    margin-top: 90px;
+    width: 65%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    position: relative;
+    overflow-y: hidden;
+    transition: width 0.5s ease;
+}
+
+.intro {
+    margin-top: auto;
+    margin-bottom: 300px;
+    padding-left: 4rem;
+}
+
+.intro p {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.intro h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+    color: black;
+    position: relative;
+}
+
+.intro h1::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color: #000;
+    bottom: -15px;
+    left: 0;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #666;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+.about-snippet {
+    margin-top: 2rem;
+    max-width: 500px;
+}
+
+.about-snippet p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.primary-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.primary-btn:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 50%;
+    background-color: #000;
+    position: relative;
+    transition: width 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Navigation - Adjusted to match reference page height */
+.main-nav {
+    position: absolute;
+    top: 1.6rem;  /* Aligns with the reference page height */
+    right: 6rem;
+    width: auto;
+    z-index: 10;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Active Page Underline - excluding contact button */
+.main-nav a:not(.contact-btn).active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:not(.contact-btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:not(.contact-btn):hover::after {
+    transform: scaleX(1);
+}
+
+.contact-btn {
+    background-color: white;
+    color: black !important;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    line-height: 1;
+}
+
+.contact-btn:hover {
+    background-color: grey !important;
+    color: black !important;
+}
+
+/* Visual elements for the sidebar */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    z-index: 1;
+    margin-top: 3rem; /* Added to create space for the nav */
+}
+
+.profile-visual {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.profile-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-placeholder {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.resume-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.resume-btn:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    color: white;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.shape-1 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #444, #222);
+    top: 15%;
+    right: -100px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.shape-2 {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #555, #333);
+    bottom: 10%;
+    left: -80px;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+/* Page Transition Effect */
+.page-transition {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .left-section {
+        width: 60%;
+    }
+
+    .sidebar {
+        width: 40%;
+    }
+
+    .intro {
+        padding-left: 2rem;
+    }
+
+    .intro h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .main-nav {
+        top: auto;
+        bottom: 1rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .sidebar-content {
+        flex-direction: row;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .profile-visual {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 0;
+    }
+
+    .stats-container {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .intro {
+        padding-left: 1rem;
+        margin-bottom: 150px;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .main-nav ul {
+        gap: 1rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .contact-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .sidebar-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .profile-visual {
+        width: 80px;
+        height: 80px;
+    }
+
+    .resume-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .stats-container {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,325 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Section */
+.left-section {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    overflow-y: auto;
+}
+
+.logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Nav Styles */
+.main-nav {
+    position: absolute;
+    top: 2rem;
+    right: 6rem;
+    width: auto;
+    z-index: 10;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Active Page Underline */
+.main-nav a:not(.contact-btn).active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:not(.contact-btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:not(.contact-btn):hover::after {
+    transform: scaleX(1);
+}
+
+.contact-btn {
+    background-color: black;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #333 !important;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* Skills Page Specific Styles */
+.skills-content {
+    margin-top: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.skills-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #000;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* Common animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.skills-category {
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+.skills-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-category:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.skills-category.visible h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    margin-bottom: 0.5rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeInRight 0.6s ease forwards;
+}
+
+.skills-category.visible .skill-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.skills-category.visible .skill-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.skills-category.visible .skill-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.skills-category.visible .skill-item:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.skills-category.visible .skill-item:nth-child(5) {
+    animation-delay: 0.7s;
+}
+
+.skills-category.visible .skill-item:nth-child(6) {
+    animation-delay: 0.8s;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-rating {
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    color: gold;
+    margin-right: 8px;
+    letter-spacing: 2px;
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, #000, #333);
+    border-radius: 4px;
+    width: 0; /* Start with width at 0 */
+    transition: width 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); /* Smooth transition for width */
+    position: relative;
+}
+
+.skill-level::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .skills-content {
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .skills-category h2 {
+        font-size: 1.3rem;
+    }
+}

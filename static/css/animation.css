@@ -1,0 +1,252 @@
+/* Prevent layout shift solution */
+
+.name-container {
+    position: relative;
+    margin-bottom: 1.8rem;
+    min-height: 6rem; /* Ensure consistent height */
+    display: flex; /* For proper cursor positioning */
+    align-items: flex-start;
+}
+
+
+/* Updated CSS for controlling line animation */
+
+.intro h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: black;
+    position: relative;
+    padding-bottom: 15px; /* Space for the line */
+    margin-bottom: 0; /* Remove margin, handled by container */
+    display: inline-block; /* For proper cursor positioning */
+}
+
+/* Change the line animation to be triggered by a class instead of automatic */
+.intro h1::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Start with 0 width */
+    height: 6px;
+    background-color: #000;
+    bottom: 0; /* Align to bottom of padding area */
+    left: 0;
+    transition: width 0.2s ease; /* Use transition instead of animation */
+}
+
+/* Apply full width when the name-typed class is added */
+.intro h1.name-typed::after {
+    width: 100px;
+}
+
+/* Remove the automatic animation */
+@keyframes expandLine {
+    0% { width: 0; }
+    100% { width: 100px; }
+}
+
+.typing-cursor {
+    display: none; /* Hide initially */
+    width: 3px;
+    height: 1em;
+    background-color: #000;
+    margin-left: 5px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 2. Make sure h2 has fixed positioning relative to the parent container */
+.intro h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #666;
+    margin-bottom: 2rem;
+    margin-top: 2rem; /* Remove top margin which could cause shifts */
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Force the layout to be stable */
+.intro {
+    margin-top: auto;
+    margin-bottom: 300px;
+    padding-left: 4rem;
+    position: relative; /* Establish positioning context */
+}
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Element animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for animations */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s; }
+
+/* Social icons hover effect */
+.social-icon {
+    transition: all 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover animations */
+.primary-btn, .secondary-btn, .resume-btn, .contact-btn {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn:hover, .secondary-btn:hover, .resume-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn::after, .resume-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.primary-btn:hover::after, .resume-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Stats counter animation */
+.stat-number {
+    display: inline-block;
+    position: relative;
+}
+
+.stat-number.animated {
+    animation: countUp 2s forwards;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Background shapes animations */
+.shape-1, .shape-2 {
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(15px, -15px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Name typing animation */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: #000;
+    margin-left: 5px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor-hidden {
+    display: none;
+}
+
+/* Nav link hover effect */
+.main-nav a:not(.contact-btn) {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav a:not(.contact-btn):hover {
+    transform: translateY(-2px);
+}
+
+/* Profile image pulse effect */
+.profile-visual::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
