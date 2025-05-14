@@ -12,32 +12,35 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #333;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Left Section */
 .left-section {
-    margin-top: 90px;
     width: 65%;
     background-color: #fff;
     display: flex;
     flex-direction: row;
     padding: 2rem;
     position: relative;
-    overflow-y: hidden;
+    overflow-y: auto;
     transition: width 0.5s ease;
 }
 
 .intro {
     margin-top: auto;
-    margin-bottom: 300px;
+    margin-bottom: 2rem;
     padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
 }
 
 .intro p {
@@ -75,6 +78,7 @@ body {
 .social-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .social-icon {
@@ -111,6 +115,7 @@ body {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .primary-btn {
@@ -150,7 +155,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 50%;
+    width: 35%;
     background-color: #000;
     position: relative;
     transition: width 0.5s ease;
@@ -165,9 +170,11 @@ body {
 .main-nav {
     position: absolute;
     top: 1.6rem;  /* Aligns with the reference page height */
-    right: 6rem;
-    width: auto;
+    right: 0;
+    left: 0;
+    width: 100%;
     z-index: 10;
+    padding: 0 1rem;
 }
 
 .main-nav ul {
@@ -176,6 +183,7 @@ body {
     align-items: center;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .main-nav a {
@@ -245,7 +253,7 @@ body {
     width: 100%;
     padding: 2rem;
     z-index: 1;
-    margin-top: 3rem; /* Added to create space for the nav */
+    margin-top: 5rem; /* Added to create space for the nav */
 }
 
 .profile-visual {
@@ -299,6 +307,7 @@ body {
     justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -356,32 +365,48 @@ body {
     }
 }
 
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Responsive adjustments */
-@media (max-width: 992px) {
-    .container {
-        flex-direction: row;
-    }
-
-    .left-section {
-        width: 60%;
-    }
-
-    .sidebar {
-        width: 40%;
-    }
-
-    .intro {
-        padding-left: 2rem;
-    }
-
+@media (max-width: 1200px) {
     .intro h1 {
-        font-size: 3.5rem;
+        font-size: 3.8rem;
+    }
+
+    .intro h2 {
+        font-size: 1.8rem;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .container {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .left-section {
@@ -392,47 +417,46 @@ body {
     .sidebar {
         width: 100%;
         height: 30vh;
+        min-height: 300px;
+    }
+
+    .intro {
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .intro h1 {
+        font-size: 3.5rem;
+    }
+
+    .intro h2 {
+        font-size: 1.7rem;
     }
 
     .main-nav {
-        top: auto;
-        bottom: 1rem;
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    .main-nav ul {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        padding: 0 1rem;
+        position: relative;
+        top: 0;
+        padding: 1rem 0;
     }
 
     .sidebar-content {
+        margin-top: 0;
         flex-direction: row;
-        padding: 1rem;
+        justify-content: center;
         gap: 2rem;
     }
 
     .profile-visual {
-        width: 100px;
-        height: 100px;
         margin-bottom: 0;
-    }
-
-    .stats-container {
-        margin-top: 0;
+        width: 150px;
+        height: 150px;
     }
 }
 
-@media (max-width: 576px) {
-    .intro {
-        padding-left: 1rem;
-        margin-bottom: 150px;
-    }
-
+@media (max-width: 768px) {
     .intro h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .intro h2 {
@@ -440,21 +464,117 @@ body {
     }
 
     .main-nav ul {
-        gap: 1rem;
+        gap: 1.5rem;
+    }
+
+    .profile-visual {
+        width: 120px;
+        height: 120px;
+    }
+
+    .resume-btn {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .left-section {
+        padding: 1rem;
+    }
+
+    .intro {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro p {
+        font-size: 1.5rem;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .main-nav {
+        padding: 0.5rem 0;
+    }
+
+    .main-nav ul {
+        gap: 0.8rem;
+        justify-content: center;
     }
 
     .main-nav a {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .contact-btn {
         padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .sidebar-content {
         flex-direction: column;
+        padding: 1rem;
         gap: 1rem;
+    }
+
+    .profile-visual {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .resume-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .about-snippet p {
+        font-size: 0.9rem;
+    }
+
+    .cta-buttons {
+        gap: 0.8rem;
+    }
+
+    .primary-btn, .secondary-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro p {
+        font-size: 1.3rem;
+    }
+
+    .intro h1 {
+        font-size: 2.2rem;
+    }
+
+    .intro h2 {
+        font-size: 1.2rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
     }
 
     .profile-visual {
@@ -462,21 +582,27 @@ body {
         height: 80px;
     }
 
-    .resume-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+    .sidebar {
+        min-height: 250px;
+    }
+}
+
+@media (max-height: 700px) {
+    .sidebar {
+        min-height: 280px;
     }
 
-    .stats-container {
-        gap: 1rem;
+    .intro {
+        margin-bottom: 0;
     }
+}
 
-    .stat-number {
-        font-size: 1.8rem;
-    }
-
-    .stat-label {
-        font-size: 0.7rem;
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    .container {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
     }
 }
