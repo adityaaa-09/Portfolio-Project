@@ -12,13 +12,11 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #333;
-    height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .container {
-    display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Left Section */
@@ -46,19 +44,20 @@ body {
 }
 
 /* Nav Styles */
+/* Navigation */
 .main-nav {
     position: absolute;
     top: 2rem;
     right: 6rem;
-    width: auto;
     z-index: 10;
 }
 
 .main-nav ul {
     display: flex;
-    justify-content: center;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .main-nav a {
@@ -70,20 +69,7 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Active Page Underline */
-.main-nav a:not(.contact-btn).active::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px;
-    height: 2px;
-    background-color: black;
-    transform: scaleX(1);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
+.main-nav a:not(.contact-btn).active::after,
 .main-nav a:not(.contact-btn)::after {
     content: '';
     position: absolute;
@@ -97,6 +83,7 @@ body {
     transition: transform 0.3s ease;
 }
 
+.main-nav a:not(.contact-btn).active::after,
 .main-nav a:not(.contact-btn):hover::after {
     transform: scaleX(1);
 }
@@ -107,13 +94,11 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .contact-btn:hover {
     background-color: #333 !important;
-    color: white !important;
-    transform: translateY(-2px);
 }
 
 /* Skills Page Specific Styles */
@@ -321,5 +306,28 @@ body {
 
     .skills-category h2 {
         font-size: 1.3rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .main-nav {
+        position: static;
+        width: 100%;
+        margin-left: 0.25rem;
+        margin-top: -0.2rem;
+        padding: 0rem;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+        padding: 0;
+    }
+
+    .main-nav a {
+        font-size: 0.8rem;
     }
 }
