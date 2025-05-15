@@ -341,3 +341,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+
+         ////////////////////////////////////////////CONTACT FORM ALERT JAVASCRIPT//////////////////////////////////////
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Process form submission here
+
+            // Show simple alert
+            alert('Your message has been sent successfully! I\'ll get back to you soon.');
+
+            // Reset the form
+            this.reset();
+        });
