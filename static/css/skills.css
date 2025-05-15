@@ -55,6 +55,7 @@ body {
     margin: 0 auto; /* Center alignment */
     padding: 0 2rem; /* Consistent padding */
     position: relative;
+    background-color: rgba(255, 255, 255, 0); /* Optional: slightly transparent background */
 }
 
 .main-nav {
@@ -83,6 +84,7 @@ body {
     font-size: 1rem;
     position: relative;
     transition: color 0.3s ease;
+    z-index: 3000;
 }
 
 /* Active Page Underline */
@@ -149,6 +151,17 @@ body {
     animation-delay: 0.3s;
 }
 
+.footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -6rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+}
 /* Common animations */
 @keyframes fadeInUp {
     from {
