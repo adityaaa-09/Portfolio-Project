@@ -4,73 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Murali - Data Analyst</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+    </style>
 </head>
 <body>
     {% include 'navbar.html' %}
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader"></div>
+    <div class="navbar-wrapper">
+        <div class="logo">
+            <a href="/">AM</a>
+        </div>
     </div>
 
-    <div class="container page-transition">
+    <div class="container">
         <div class="left-section">
-            <div class="intro">
-                <p class="fade-in delay-1">Hi, I am</p>
-                <h1 id="name-text"></h1>
-                <span id="typing-cursor" class="typing-cursor"></span>
-                <h2 class="fade-in delay-3">DATA ANALYST</h2>
-
-                <div class="social-links fade-in delay-4">
-                    <a href="mailto:adityamurali7642@gmail.com" class="social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/adityaaa-09" class="social-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/aditya-murali-136a79226" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://x.com/aditya_0919?s=21" class="social-icon" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+            <div class="home-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="{{ url_for('static', filename='images/profile1.jpg') }}" alt="Aditya Murali">
+                    </div>
+                    <div class="intro-text">
+                        <h1>Aditya Murali</h1>
+                        <h2 class="job-title">Data Analyst</h2>
+                        <p>Transforming complex data into actionable insights. I specialize in data analytics, visualization, and machine learning to solve real-world problems and drive business decisions.</p>
+                        <div class="cta-buttons">
+                            <a href="/portfolio" class="btn btn-primary">View My Work</a>
+                            <a href="/contact" class="btn btn-outline">Get In Touch</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="about-snippet fade-in delay-4">
-                    <p>Transforming data into actionable insights. I specialize in data visualization, statistical analysis, and machine learning to help businesses make data-driven decisions.</p>
+                <div class="skills-section">
+                    <h2>My Expertise</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Web Scraping</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Dashboard Creation</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
                 </div>
 
-                <div class="cta-buttons fade-in delay-5">
-                    <a href="/portfolio" class="primary-btn">
-                        <i class="fas fa-chart-bar"></i> View My Work
-                    </a>
-                    <a href="/about" class="secondary-btn">About Me</a>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:adityamurali7642@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+919920088950"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="sidebar">
-            <div class="sidebar-content">
-                <div class="profile-visual fade-in delay-2">
-                    <img src="/static/images/profile1.jpg" alt="Profile Image" class="profile-image">
-                    <!-- Replace with your actual image -->
-<!--                    <div class="profile-placeholder">-->
-<!--                        <i class="fas fa-user"></i>-->
-<!--                    </div>-->
-                </div>
-
-                <a href = "{{url_for ('static', filename= 'resume/Aditya_Data _Analyst_Resume_2025.pdf')}}" class="resume-btn fade-in delay-3">
-                    <i class="fas fa-file-alt"></i> View Resume
-                </a>
-            </div>
-
-            <!-- Background shapes -->
-            <div class="shape-1"></div>
-            <div class="shape-2"></div>
         </div>
     </div>
 
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
