@@ -1,3 +1,4 @@
+
 // main.js - Combined functionality for page transitions and sidebar
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on the index page
@@ -319,5 +320,24 @@ document.addEventListener('DOMContentLoaded', function() {
                         successMessage.style.display = 'none';
                     }, 500); // Wait for fade-out animation to complete
                 }, 5000);
+            });
+        });
+
+
+
+
+        ////////////////////////////////////////////INDEX PAGE NEW JAVASCRIPT//////////////////////////////////////
+        // JavaScript to handle the active link state
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentLocation = location.pathname;
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (linkPath === currentLocation) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
         });
