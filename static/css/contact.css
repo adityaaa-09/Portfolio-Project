@@ -187,12 +187,14 @@ hr {
 .contact-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 2rem; /* Reduced from 4rem */
     margin: 0 auto;
     background-color: var(--light-bg);
     border-radius: 16px;
-    padding: 3rem;
+    padding: 2rem; /* Reduced from 3rem for smaller screens */
+    justify-content: space-between;
     box-shadow: var(--shadow);
+    width: 100%; /* Ensure full width */
 }
 
 /* Contact Information Section */
@@ -296,15 +298,16 @@ hr {
 
 /* Contact Form Section */
 .contact-form {
-    margin-top: -2rem;
+    margin-top: 0; /* Removed negative margin */
     flex: 1;
     min-width: 300px;
-    border: 2.5px solid black; /* Add this line for the border */
-    border-radius: 3px; /* Optional: Add rounded corners */
-    padding: 2rem; /* Optional: Add padding inside the form */
-    background-color: #fff; /* Optional: Ensure it has a white background for contrast */
-    box-shadow: var(--shadow); /* Optional: Add subtle shadow for better separation */
-    height: 43rem;
+    border: 2.5px solid black;
+    border-radius: 3px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    height: auto; /* Changed from fixed height to auto */
+    min-height: 43rem; /* Use min-height instead of fixed height */
 }
 
 .contact-form > p {
@@ -427,6 +430,8 @@ hr {
     .contact-container {
         flex-direction: column;
         padding: 2rem;
+        gap: 2rem; /* Consistent gap */
+        align-items: center; /* Center items horizontally */
     }
 
     .page-header h1 {
@@ -436,12 +441,25 @@ hr {
     .content-wrapper {
         margin-top: 3rem;
     }
+
+    .contact-form {
+        width: 100%;
+        padding: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Small Tablets (max-width: 768px) */
 @media screen and (max-width: 768px) {
     .container {
         padding: 0 1rem;
+    }
+
+    .content-wrapper {
+        margin: 3rem auto 0;
+        padding: 0 1rem;
+        width: 100%;
     }
 
     .main-nav ul {
@@ -458,18 +476,15 @@ hr {
     }
 
     .contact-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4rem;
+        padding: 1.5rem;
+        gap: 2rem;
+        max-width: 100%;
         margin: 0 auto;
-        background-color: var(--light-bg);
-        border-radius: 16px;
-        padding: 3rem;
-        box-shadow: var(--shadow);
     }
 
     .info-item {
-        flex-direction: column;
+        flex-direction: row; /* Keep horizontal layout */
+        align-items: center;
         margin-bottom: 1rem;
     }
 
@@ -477,23 +492,40 @@ hr {
         width: auto;
         margin-bottom: 0.2rem;
     }
+
     .footer {
-    text-align: center;
-    padding: 2rem 0 1rem;
-    margin-top: -2rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 1.7s; /* Adjust the delay as needed */
+        text-align: center;
+        padding: 2rem 0 1rem;
+        margin-top: 2rem; /* Fixed from negative value */
+        color: var(--text-light);
+        font-size: 0.9rem;
+        opacity: 1; /* Set to visible by default */
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%; /* Ensure full width */
+        min-width: 100%; /* Override the min-width */
+        max-width: 100%; /* Add max-width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
     }
 }
 
 /* Mobile (max-width: 576px) */
 @media screen and (max-width: 576px) {
     .container {
+        padding: 0;
+    }
+
+    .content-wrapper {
         padding: 0 0.5rem;
+        margin-top: 2rem;
+        width: 100%;
     }
 
     .main-nav ul {
@@ -515,30 +547,41 @@ hr {
     }
 
     .contact-form {
-        height: auto;
-        min-height: initial;
-        width: 100%; /* Fix the incorrect value of 5rem */
+        width: 100%;
+        margin: 0 auto;
         padding: 1.5rem;
+        border-width: 2px;
+        min-height: auto; /* Remove fixed min-height */
     }
+
+    .contact-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
     .form-group input,
     .form-group textarea {
         padding: 0.7rem; /* Slightly smaller padding */
     }
+
     .submit-btn {
         width: 100%; /* Full width button on mobile */
         justify-content: center;
     }
 
     .footer {
-    text-align: center;
-    padding: 2rem 0 1rem;
-    margin-top: -2rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 1.7s; /* Adjust the delay as needed */
+        text-align: center;
+        padding: 1.5rem 0 1rem;
+        margin-top: 2rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+        opacity: 1;
+    }
+
+    .info-item {
+        padding: 0.75rem; /* Smaller padding */
     }
 }
 
@@ -554,6 +597,23 @@ hr {
 
     .contact-btn {
         padding: 0.4rem 0.8rem;
+    }
+
+    .contact-container {
+        padding: 0.75rem;
+        width: 100%;
+    }
+
+    .contact-form {
+        padding: 1rem;
+        border-width: 1.5px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -697,20 +757,6 @@ hr {
     transform: rotate(0deg);
 }
 
-/* Social Links Animation */
-.social-links {
-    animation: slideInUp 1s ease-out 2s both;
-}
-
-.social-links a {
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
 /* Contact Form Section Animation */
 .contact-form {
     animation: slideInRight 1s ease-out 0.8s both;
@@ -799,4 +845,3 @@ hr {
 .footer {
     animation: fadeIn 1s ease-out 2.2s both;
 }
-
