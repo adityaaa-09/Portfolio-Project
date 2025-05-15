@@ -141,7 +141,7 @@ body {
 }
 
 .skills-content h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: #000;
@@ -459,6 +459,18 @@ body {
 @media screen and (max-width: 576px) {
     .container {
         padding: 0 0.5rem;
+    }
+
+    .skills-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: -6.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
     }
 
     .main-nav ul {
