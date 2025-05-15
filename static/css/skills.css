@@ -379,6 +379,17 @@ body {
     .about-text p {
         font-size: 1rem;
     }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+    }
 }
 
 /* Small Tablets (max-width: 768px) */
@@ -413,12 +424,34 @@ body {
         width: auto;
         margin-bottom: 0.2rem;
     }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -4rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+    }
 
 }
 
 @media (max-width: 768px) {
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -4rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
     }
 }
 
@@ -445,6 +478,17 @@ body {
 
     .personal-info {
         margin-top: 0;
+    }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
     }
 
     /* Add a mobile-friendly menu toggle if needed */
