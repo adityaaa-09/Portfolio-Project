@@ -416,6 +416,17 @@ body {
         width: 200px;
         height: 200px;
     }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -4rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+    }
 }
 
 /* Small Tablets (max-width: 768px) */
@@ -451,6 +462,18 @@ body {
     .profile-image {
         width: 180px;
         height: 180px;
+    }
+
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
     }
 }
 
@@ -488,6 +511,17 @@ body {
     .skills-container {
         justify-content: center;
     }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+    }
 }
 
 /* Small Mobile (max-width: 375px) */
@@ -510,5 +544,16 @@ body {
 
     .social-links {
         flex-wrap: wrap;
+    }
+    .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
     }
 }
