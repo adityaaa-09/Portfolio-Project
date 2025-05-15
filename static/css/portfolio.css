@@ -145,7 +145,7 @@ body {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     gap: 2rem;
     perspective: 1000px; /* 3D effect for child items */
 }
