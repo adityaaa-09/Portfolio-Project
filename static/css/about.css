@@ -223,6 +223,20 @@ body {
     color: #666;
 }
 
+.footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    margin-top: -6rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.7s; /* Adjust the delay as needed */
+}
+
+
+
 /* Animation keyframes */
 @keyframes fadeInUp {
     from {
