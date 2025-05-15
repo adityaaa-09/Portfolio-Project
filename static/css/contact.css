@@ -189,7 +189,7 @@ hr {
     flex-wrap: wrap;
     gap: 4rem;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--light-bg);
     border-radius: 16px;
     padding: 3rem;
     box-shadow: var(--shadow);
@@ -379,17 +379,51 @@ hr {
 .footer {
     text-align: center;
     padding: 2rem 0 1rem;
-    margin-top: -6rem;
+    margin-top: 3rem;
     color: var(--text-light);
     font-size: 0.9rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 1.7s; /* Adjust the delay as needed */
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
+/* ====== RESPONSIVE STYLES ====== */
+
+/* Large Tablets and Small Laptops (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .main-nav {
+        left: auto;
+        right: 2rem;
+        margin-top: 1rem;
+    }
+
+    .content-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Medium Tablets (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .main-nav {
+        position: static;
+        margin-top: 0;
+        padding: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        left: auto;
+    }
+
+    .main-nav ul {
+        gap: 1.5rem;
+    }
+
     .contact-container {
         flex-direction: column;
         padding: 2rem;
@@ -398,53 +432,50 @@ hr {
     .page-header h1 {
         font-size: 2.5rem;
     }
+
+    .content-wrapper {
+        margin-top: 3rem;
+    }
 }
 
-@media (max-width: 768px) {
-
-    .hr {
-    border: none; /* Remove the default border */
-    height: 1px; /* Set the height of the HR */
-    background: linear-gradient(to right, #000000, #333333, #000000); /* Add a gradient */
-    margin: 2rem 0; /* Add spacing above and below */
-    border-radius: 1px; /* Optional: Rounded edges */
-    width: 95%; /* Optional: Restrict width to a percentage */
-    margin-left: auto;
-    margin-right: auto; /* Center the HR */
-    }
-
-    .form-row {
-        flex-direction: column;
+/* Small Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
     }
 
     .main-nav ul {
         gap: 1rem;
     }
 
-    .container {
-        padding: 1rem;
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
     }
 
     .contact-container {
         padding: 1.5rem;
     }
-}
 
-@media (max-width: 576px) {
-    .hr {
-    border: none; /* Remove the default border */
-    height: 1px; /* Set the height of the HR */
-    background: linear-gradient(to right, #000000, #333333, #000000); /* Add a gradient */
-    margin: 2rem 0; /* Add spacing above and below */
-    border-radius: 1px; /* Optional: Rounded edges */
-    width: 95%; /* Optional: Restrict width to a percentage */
-    margin-left: auto;
-    margin-right: auto; /* Center the HR */
+    .info-item {
+        flex-direction: column;
+        margin-bottom: 1rem;
     }
 
-    .main-nav {
-        flex-direction: column;
-        gap: 1rem;
+    .label {
+        width: auto;
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 0.5rem;
     }
 
     .main-nav ul {
@@ -464,12 +495,31 @@ hr {
     .section-title h2 {
         font-size: 1.5rem;
     }
+
+    .contact-form {
+        height: auto;
+    }
+
+    .success-message {
+        margin-left: 0;
+        margin-bottom: 2rem;
+    }
 }
 
+/* Small Mobile (max-width: 375px) */
+@media screen and (max-width: 375px) {
+    .main-nav a {
+        font-size: 0.8rem;
+    }
 
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
 
-
-
+    .contact-btn {
+        padding: 0.4rem 0.8rem;
+    }
+}
 
 /* Animation Keyframes */
 @keyframes fadeIn {
