@@ -517,6 +517,16 @@ hr {
     .contact-form {
         height: auto;
         min-height: initial;
+        width: 100%; /* Fix the incorrect value of 5rem */
+        padding: 1.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 0.7rem; /* Slightly smaller padding */
+    }
+    .submit-btn {
+        width: 100%; /* Full width button on mobile */
+        justify-content: center;
     }
 
     .footer {
