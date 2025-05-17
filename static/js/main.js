@@ -1,4 +1,3 @@
-
 // main.js - Combined functionality for page transitions and sidebar
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on the index page
@@ -92,30 +91,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //skills page javascript
-    document.addEventListener('DOMContentLoaded', function() {
-        // Animate skill bars with a slight delay
-        setTimeout(function() {
-            // First animate the categories
-            const categories = document.querySelectorAll('.skills-category');
-            categories.forEach((category, index) => {
-                setTimeout(() => {
-                    category.classList.add('visible');
-                }, index * 300); // Stagger the category animations
-            });
-
-            // Then animate the skill levels with a delay
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate skill bars with a slight delay
+    setTimeout(function() {
+        // First animate the categories
+        const categories = document.querySelectorAll('.skills-category');
+        categories.forEach((category, index) => {
             setTimeout(() => {
-                const skillLevels = document.querySelectorAll('.skill-level');
-                skillLevels.forEach((level, index) => {
-                    setTimeout(() => {
-                        const skillPercentage = level.getAttribute('data-level') + '%';
-                        level.classList.add('animate');
-                        level.style.width = skillPercentage;
-                    }, index * 75); // Stagger each skill bar animation
-                });
-            }, 200); // Start skill animations after categories begin to show
-        }, 5); // Initial delay
-    });
+                category.classList.add('visible');
+            }, index * 300); // Stagger the category animations
+        });
+
+        // Then animate the skill levels with a delay
+        setTimeout(() => {
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach((level, index) => {
+                setTimeout(() => {
+                    const skillPercentage = level.getAttribute('data-level') + '%';
+                    level.classList.add('animate');
+                    level.style.width = skillPercentage;
+                }, index * 75); // Stagger each skill bar animation
+            });
+        }, 200); // Start skill animations after categories begin to show
+    }, 5); // Initial delay
+});
+
 ////////////////////////////////////////////INDEX PAGE JAVASCRIPT FOR TRANSITION//////////////////////////////////////
 window.addEventListener('load', function() {
     // Hide preloader after content is loaded
@@ -196,160 +196,186 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 });
+
 ////////////////////////////////////////////SKILLS PAGE JAVASCRIPT FOR TRANSITION//////////////////////////////////////
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate skill categories on scroll
-            const categories = document.querySelectorAll('.skills-category');
-
-            // Add visible class to the first category immediately
-            if (categories.length > 0) {
-                setTimeout(() => {
-                    categories[0].classList.add('visible');
-                }, 500); // Delay to let heading animation complete first
-            }
-
-            // Add visible class to other categories with a delay
-            for (let i = 1; i < categories.length; i++) {
-                setTimeout(() => {
-                    categories[i].classList.add('visible');
-                }, 500 + (300 * i)); // Start after heading animation
-            }
-
-            // Additional scroll effect for categories that aren't initially visible
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            categories.forEach(category => {
-                if (!category.classList.contains('visible')) {
-                    observer.observe(category);
-                }
-            });
-
-            // Animate skill bars after categories are visible
-            setTimeout(() => {
-                const skillLevels = document.querySelectorAll('.skill-level');
-                skillLevels.forEach((level, index) => {
-                    setTimeout(() => {
-                        const percentage = level.getAttribute('data-level') + '%';
-                        level.style.width = percentage;
-                    }, index * 75); // Stagger each skill bar animation
-                });
-            }, 800);
-        });
-////////////////////////////////////////////CONTACT PAGE JAVASCRIPT FOR SMTP//////////////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
+    // Animate skill categories on scroll
+    const categories = document.querySelectorAll('.skills-category');
 
-    // Hide success message initially
-    if (successMessage) {
-        successMessage.style.display = 'none';
+    // Add visible class to the first category immediately
+    if (categories.length > 0) {
+        setTimeout(() => {
+            categories[0].classList.add('visible');
+        }, 500); // Delay to let heading animation complete first
     }
 
-    contactForm.addEventListener('submit', async function (event) {
-        event.preventDefault();
+    // Add visible class to other categories with a delay
+    for (let i = 1; i < categories.length; i++) {
+        setTimeout(() => {
+            categories[i].classList.add('visible');
+        }, 500 + (300 * i)); // Start after heading animation
+    }
 
-        const formData = new FormData(this);
-
-        try {
-            const response = await fetch('/send_message', {
-                method: 'POST',
-                body: formData
-            });
-
-            const result = await response.json();
-            if (result.status === 'success') {
-                // Show success message instead of alert
-                successMessage.style.display = 'flex';
-                successMessage.classList.add('show-success');
-
-                // Clear form
-                contactForm.reset();
-
-                // Hide success message after 5 seconds
-                setTimeout(function() {
-                    successMessage.classList.remove('show-success');
-                    setTimeout(function() {
-                        successMessage.style.display = 'none';
-                    }, 500);
-                }, 5000);
-            } else {
-                // Handle error case - you could display an error message
-                // in a similar way to the success message but with different styling
-                console.error('Error sending message:', result.message);
+    // Additional scroll effect for categories that aren't initially visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
-        } catch (error) {
-            // Handle fetch error
-            console.error('An error occurred:', error.message);
+        });
+    }, { threshold: 0.1 });
+
+    categories.forEach(category => {
+        if (!category.classList.contains('visible')) {
+            observer.observe(category);
+        }
+    });
+
+    // Animate skill bars after categories are visible
+    setTimeout(() => {
+        const skillLevels = document.querySelectorAll('.skill-level');
+        skillLevels.forEach((level, index) => {
+            setTimeout(() => {
+                const percentage = level.getAttribute('data-level') + '%';
+                level.style.width = percentage;
+            }, index * 75); // Stagger each skill bar animation
+        });
+    }, 800);
+});
+
+////////////////////////////////////////////CONTACT PAGE JAVASCRIPT FOR FORM HANDLING//////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            // Create form data object
+            const formData = new FormData(this);
+            
+            // Get submit button and save original text
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            try {
+                // Send form data to server
+                const response = await fetch('/send_message', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                // Reset button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Check for success message element
+                const successMessage = document.getElementById('successMessage');
+                // Check for form message element (fallback)
+                const formMessage = document.getElementById('formMessage');
+                
+                if (result.status === 'success') {
+                    // Success scenario - try different message options in order of preference
+                    if (successMessage) {
+                        // If there's a dedicated success message element
+                        successMessage.style.display = 'flex';
+                        successMessage.classList.add('show-success');
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(function() {
+                            successMessage.classList.remove('show-success');
+                            setTimeout(function() {
+                                successMessage.style.display = 'none';
+                            }, 500);
+                        }, 5000);
+                    } else if (formMessage) {
+                        // If using the formMessage div
+                        formMessage.style.display = 'block';
+                        formMessage.style.backgroundColor = '#d4edda';
+                        formMessage.style.color = '#155724';
+                        formMessage.textContent = 'Message sent successfully! I will get back to you soon.';
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Fallback to alert if no message elements exist
+                        alert('Message sent successfully! I will get back to you soon.');
+                    }
+                    
+                    // Clear the form
+                    contactForm.reset();
+                } else {
+                    // Error handling
+                    console.error('Error sending message:', result.message);
+                    
+                    if (formMessage) {
+                        // If using the formMessage div
+                        formMessage.style.display = 'block';
+                        formMessage.style.backgroundColor = '#f8d7da';
+                        formMessage.style.color = '#721c24';
+                        formMessage.textContent = 'Error sending message: ' + result.message;
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Fallback to alert if no message elements exist
+                        alert('Error sending message: ' + result.message);
+                    }
+                }
+            } catch (error) {
+                // Reset button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Handle fetch error
+                console.error('An error occurred:', error.message);
+                
+                // Check for form message element
+                const formMessage = document.getElementById('formMessage');
+                
+                if (formMessage) {
+                    // If using the formMessage div
+                    formMessage.style.display = 'block';
+                    formMessage.style.backgroundColor = '#f8d7da';
+                    formMessage.style.color = '#721c24';
+                    formMessage.textContent = 'Error sending message. Please try again later.';
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Fallback to alert if no message elements exist
+                    alert('Error sending message. Please try again later.');
+                }
+            }
+        });
+    }
+});
+
+////////////////////////////////////////////INDEX PAGE NEW JAVASCRIPT//////////////////////////////////////
+// JavaScript to handle the active link state
+document.addEventListener('DOMContentLoaded', function() {
+    const currentLocation = location.pathname;
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentLocation) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 });
-////////////////////////////////////////////CONTACT PAGE JAVASCRIPT FOR CLEARING INPUT FIELDS//////////////////////////////////////
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const successMessage = document.getElementById('successMessage');
-
-            // Hide success message initially
-            successMessage.style.display = 'none';
-
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                // Here you would typically add your form submission logic
-                // For example, using fetch to send form data to your server
-
-                // For demonstration, we'll just show the success message and clear the form
-
-                // Show success message with animation
-                successMessage.style.display = 'flex';
-                successMessage.classList.add('show-success');
-
-                // Clear all form inputs
-                contactForm.reset();
-
-                // Hide success message after 5 seconds
-                setTimeout(function() {
-                    successMessage.classList.remove('show-success');
-                    setTimeout(function() {
-                        successMessage.style.display = 'none';
-                    }, 500); // Wait for fade-out animation to complete
-                }, 5000);
-            });
-        });
-
-
-
-
-        ////////////////////////////////////////////INDEX PAGE NEW JAVASCRIPT//////////////////////////////////////
-        // JavaScript to handle the active link state
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentLocation = location.pathname;
-            const navLinks = document.querySelectorAll('.main-nav a');
-
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
-                if (linkPath === currentLocation) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        });
-
-         ////////////////////////////////////////////CONTACT FORM ALERT JAVASCRIPT//////////////////////////////////////
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Process form submission here
-
-            // Show simple alert
-            alert('Your message has been sent successfully! I\'ll get back to you soon.');
-
-            // Reset the form
-            this.reset();
-        });
